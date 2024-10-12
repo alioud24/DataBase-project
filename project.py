@@ -64,7 +64,7 @@ def modifier_note_db(identifiant_etudiant, prenom_etudiant, nom_etudiant, matier
         cursor = conn.cursor()
         try:  
             query = "UPDATE liste SET prenom_etudiant = %s, nom_etudiant = %s, matiere = %s, note = %s WHERE identifiant_etudiant = %s"
-            cursor.execute(query, (identifiant_etudiant, prenom_etudiant, nom_etudiant, matiere, note))
+            cursor.execute(query, (prenom_etudiant, nom_etudiant, matiere, note, identifiant_etudiant))
             conn.commit()
             print("Note modifiée avec succès")
         except mysql.connector.Error as err:
